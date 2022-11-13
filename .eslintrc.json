@@ -1,0 +1,56 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "linebreak-style": [ "error", "unix" ],
+    "no-console": "off",
+    "no-trailing-spaces": "error",
+    "no-undef": "error",
+    "prettier/prettier": ["warn"]
+  },
+  "overrides": [
+    {
+      "files": ["vite.config.ts"],
+      "env": {
+        "browser": false,
+        "node": true
+      },
+      "parser": "espree",
+      "plugins": [],
+      "extends": [
+        "eslint:recommended"
+      ],
+      "rules": {
+        "global-require": [ "off" ],
+        "@typescript-eslint/no-var-requires": [ "off" ]
+      }
+    },
+    {
+      "files": ["jest.config.js"],
+      "env": {
+        "browser": false,
+        "node": true
+      },
+      "parser": "espree",
+      "plugins": [],
+      "extends": [
+        "eslint:recommended"
+      ],
+      "rules": {
+        "global-require": [ "off" ],
+        "no-undef": [ "off" ]
+      }
+    }
+  ]
+}
